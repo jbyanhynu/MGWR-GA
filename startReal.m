@@ -1,0 +1,13 @@
+clear;
+tic;
+[px,py,x,y]=Readshp('../data/boston.xlsx');
+[~,nvars]=size(x);
+fitnessfcn=@(bw)get_AICc(bw,px,py,x,y);
+qmin=2;
+qmax=100;
+lb =qmin*ones(nvars,1);
+ub=qmax*ones(nvars,1);
+options = optimoptions('ga', 'PlotFcn', @gaplotbestf, 'ConstraintTolerance',1e-6,'UseParallel', true);
+[bw,fval,exitflag,output,population,scores] = ga(fitnessfcn, nvars, [], [], [], [], lb, ub, [], [], options);
+[R2,adj_R2,list_betas,AICc]=calcR2GWR(px,py,x,y,bw);
+timeEnd=toc;
