@@ -1,0 +1,1 @@
+Yan, J., Wu, B., & Zheng, H. (2024). Multiscale cooperative optimization in multiscale geographically weighted regression models. International Journal of Geographical Information Science, 39(2), 326–345. https://doi.org/10.1080/13658816.2024.2410346
